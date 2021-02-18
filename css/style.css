@@ -7,28 +7,46 @@ body{
 
 header{
     font-size: xx-large;
-    width: 100%;
-    border: 1px black solid;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .header-title{
-    float: left;
-    width: 44%;
-    box-sizing: content-box;
+    width: 50%;
+    display: inline-block;
 }
 
-.header-button{
-    font-family: "Langar", cursive;
-    background-color: darkslategray;
-}
-
-.close-button{
+.button{
+    height: 40px;
+    width: 40px;
     display: inline-block;
     font-family: "Langar", cursive;
     background-color: darkslategray;
+    border-radius: 50%;
+}
+
+.header-button{
+    display: inline-block;
+    text-align: center;
+    font-family: "Langar", cursive;
+    background-color: darkslategray;
+    border-radius: 10px;
+}
+
+.button-wrapper{
+    text-align: right;
+    display: inline-block;
+    width: 50%;
+}
+
+.close-button{
     float: right;
     border-radius: 50%;
-    margin: 3% 3% 0 0;
+    margin: 3% 0 0 0;
+}
+
+section{
+    margin-top: 50px;
 }
 
 .feature{
@@ -45,25 +63,48 @@ header{
     color: yellow;
 }
 
+.favorites{
+    width: 90%;
+}
+
+.search-type{
+    font-family: "Langar", cursive;
+}
+
+.search{
+    float: right;
+    width: 50%;
+    text-align: right;
+    display: inline-block;
+}
+
 h1, h2, h3{
     margin: 0;
+}
+
+h2{
+    display: inline-block;
+    width: 45%;
+    font-size: 0.9em;
+}
+
+ul{
+    padding-left: 0;
 }
 
 .condition{
     list-style-type: none;
     padding: 0;
-    margin: 5px 5%;
+    margin: 5px 0;
 }
 
 h3{
-    margin-left: 10%;
     display: inline-block;
     font-size: 0.8em;
 }
 
 .container{
     width: 90%;
-    border: black solid 1px;
 }
 
 .flex-container{
@@ -72,9 +113,18 @@ h3{
     flex-wrap: wrap;
 }
 
-@media (min-width: 900px){
+@media (min-width: 767px){
     .container{
         width: 45%;
+    }
+    header{
+        width: 95%;
+    }
+    .favorites{
+        width: 95%;
+    }
+    .search{
+        width: 50%;
     }
 }
 
@@ -94,7 +144,7 @@ h3{
 }
 
 .city-image{
-    width: 7%;
+    width: 10%;
 }
 
 .current-conditions{
