@@ -32,7 +32,7 @@ h3{
 }
 
 .container{
-    width: 45%;
+    width: 90%;
     border: black solid 1px;
 }
 
@@ -40,6 +40,12 @@ h3{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+
+@media (min-width: 900px){
+    .container{
+        width: 45%;
+    }
 }
 
 .current-temperature{
