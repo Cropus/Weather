@@ -51,13 +51,14 @@ header{
     display: inline-block;
 }
 .header-button{
+    /*height: 60px;*/
+    /*width: 60px;*/
     display: inline-block;
     text-align: center;
     font-family: "Langar", cursive;
     background-color: silver;
     border: slategray 1px solid;
     border-radius: 10px;
-    height: 60px;
 }
 
 .button{
@@ -168,9 +169,22 @@ section{
     .search{
         width: 50%;
     }
-    .header-button{
-        height: fit-content;
-    }
+    /*.header-button{*/
+    /*    visibility: hidden;*/
+    /*}*/
+    /*.header-button::after{*/
+    /*    content: "Обновить геолокацию";*/
+    /*    display: inline-block;*/
+    /*    text-align: center;*/
+    /*    font-family: "Langar", cursive;*/
+    /*    background-color: silver;*/
+    /*    border: slategray 1px solid;*/
+    /*    visibility: visible;*/
+    /*    height: 40px;*/
+    /*    border-radius: 10px;*/
+    /*    margin: auto 3% 3% 0;*/
+    /*    padding: 10px;*/
+    /*}*/
     .button {
         height: 40px;
         width: 40px;
