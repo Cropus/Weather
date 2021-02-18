@@ -1,3 +1,4 @@
+                                                /* GLOBALS */
 body{
     font-family: "Langar", cursive;
     text-align-all: center;
@@ -5,79 +6,17 @@ body{
     background-color: ghostwhite;
 }
 
-header{
-    font-size: xx-large;
-    width: 90%;
-    margin: 0 auto;
+.flex-container{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.header-title{
-    width: 50%;
-    display: inline-block;
-}
-
-.button{
-    height: 40px;
-    width: 40px;
-    display: inline-block;
-    font-family: "Langar", cursive;
-    background-color: darkslategray;
-    border-radius: 50%;
-}
-
-.header-button{
-    display: inline-block;
-    text-align: center;
-    font-family: "Langar", cursive;
-    background-color: darkslategray;
-    border-radius: 10px;
-}
-
-.button-wrapper{
-    text-align: right;
-    display: inline-block;
-    width: 50%;
-}
-
-.close-button{
-    float: right;
-    border-radius: 50%;
-    margin: 3% 0 0 0;
-}
-
-section{
-    margin-top: 50px;
-}
-
-.feature{
-    width: 50%;
-    background-color: gray;
-    display: inline-block;
-}
-
-.feature-content{
-    width: 50%;
-    text-align: right;
-    background-color: gray;
-    display: inline-block;
-    color: yellow;
-}
-
-.favorites{
+.container{
     width: 90%;
 }
 
-.search-type{
-    font-family: "Langar", cursive;
-}
-
-.search{
-    float: right;
-    width: 50%;
-    text-align: right;
-    display: inline-block;
-}
-
+                                                /* FONTS */
 h1, h2, h3{
     margin: 0;
 }
@@ -88,31 +27,132 @@ h2{
     font-size: 0.9em;
 }
 
+h3{
+    display: inline-block;
+    font-size: 0.8em;
+}
+
 ul{
     padding-left: 0;
+}
+
+
+
+                                                /* HEADER AREA */
+header{
+    font-size: xx-large;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.header-title{
+    width: 50%;
+    display: inline-block;
+}
+.header-button{
+    display: inline-block;
+    text-align: center;
+    font-family: "Langar", cursive;
+    background-color: silver;
+    border: slategray 1px solid;
+    border-radius: 10px;
+}
+
+.button{
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    font-family: "Langar", cursive;
+    background-color: silver;
+    border: slategray 1px solid;
+    border-radius: 50%;
+}
+
+.button-wrapper{
+    text-align: right;
+    display: inline-block;
+    width: 50%;
+}
+
+
+                                                /* CURRENT AREA */
+section{
+    margin-top: 50px;
+}
+
+.close-button{
+    float: right;
+    border-radius: 50%;
+    margin: 3% 0 0 0;
+}
+
+.current-temperature{
+    float: right;
+    font-size: 3em;
+    margin-right: 10%;
+}
+
+.current-image{
+    width: 40%;
 }
 
 .condition{
     list-style-type: none;
     padding: 0;
     margin: 5px 0;
+    background-color: gray;
 }
 
-h3{
+.feature{
+    height:1.5em;
+    width: 48%;
     display: inline-block;
-    font-size: 0.8em;
+    color: whitesmoke;
+    padding-left: 2%;
 }
 
-.container{
+.feature-content{
+    height: 1.5em;
+    width: 48%;
+    text-align: right;
+    display: inline-block;
+    color: lawngreen;
+    font-size: 0.5em;
+    padding-right: 2%;
+}
+
+
+
+                                                /* FAVORITE AREA */
+.favorites{
     width: 90%;
 }
 
-.flex-container{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+.search{
+    float: right;
+    width: 50%;
+    text-align: right;
+    display: inline-block;
 }
 
+.search-type{
+    font-family: "Langar", cursive;
+    background-color: whitesmoke;
+    border: slategray 1px solid;
+}
+
+
+                                                /* REGULAR BLOCKS */
+.regular-temperature{
+    font-size: 0.8em;
+    margin-left: 5%;
+}
+
+.city-image{
+    width: 10%;
+}
+
+                                                /* MEDIA REQUEST */
 @media (min-width: 767px){
     .container{
         width: 45%;
@@ -128,25 +168,4 @@ h3{
     }
 }
 
-.current-temperature{
-    float: right;
-    font-size: 3em;
-    margin-right: 10%;
-}
 
-.regular-temperature{
-    font-size: 0.8em;
-    margin-left: 5%;
-}
-
-.current-image{
-    width: 40%;
-}
-
-.city-image{
-    width: 10%;
-}
-
-.current-conditions{
-
-}
