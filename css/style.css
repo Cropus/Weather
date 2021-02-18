@@ -169,9 +169,10 @@ section{
     .search{
         width: 50%;
     }
-    /*.header-button{*/
+    .header-button{
+        height: set-content;
     /*    visibility: hidden;*/
-    /*}*/
+    }
     /*.header-button::after{*/
     /*    content: "Обновить геолокацию";*/
     /*    display: inline-block;*/
