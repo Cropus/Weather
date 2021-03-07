@@ -1,5 +1,7 @@
                                                 /* GLOBALS */
 body{
+    margin: 0;
+    width: 100%;
     font-family: "Langar", cursive;
     text-align-all: center;
     font-size: xx-large;
@@ -12,36 +14,53 @@ body{
     flex-wrap: wrap;
 }
 
+.fav-container{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
 .container{
     width: 90%;
+}
+
+.reg-container{
+    width: 95%;
 }
 
                                                 /* FONTS */
 h1, h2, h3{
     margin: 0;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 h2{
-    display: inline-block;
     width: 45%;
     font-size: 1.2em;
+    margin: 0;
+    vertical-align: middle;
 }
 
 h3{
     display: inline-block;
     font-size: 1em;
+    vertical-align: middle;
 }
 
 ul{
     padding-left: 0;
 }
 
+li{
+    list-style-type: none;
+    padding: 0;
+}
+
 
 
                                                 /* HEADER AREA */
 header{
-    font-size: xx-large;
+    font-size: 1em;
     width: 90%;
     margin: 0 auto;
 }
@@ -74,6 +93,7 @@ header{
     background-color: silver;
     border: slategray 1px solid;
     border-radius: 50%;
+    box-sizing: border-box;
 }
 
 .button-wrapper{
@@ -90,23 +110,22 @@ section{
 
 .close-button{
     float: right;
-    margin: 3% 0 0 0;
+    vertical-align: middle;
+    margin: 0;
 }
 
 .current-temperature{
     float: right;
     font-size: 3em;
-    margin-right: 10%;
 }
 
 .current-image{
     width: 40%;
+    max-width: 240px;
 }
 
 .condition{
-    list-style-type: none;
-    padding: 0;
-    margin: 5px 0;
+    margin: 5px auto;
     background-color: gray;
 }
 
@@ -115,7 +134,7 @@ section{
     width: 48%;
     display: inline-block;
     color: whitesmoke;
-    padding-left: 2%;
+    padding-left: 0;
 }
 
 .feature-content{
@@ -125,7 +144,7 @@ section{
     display: inline-block;
     color: lawngreen;
     font-size: 0.5em;
-    padding-right: 2%;
+    padding-right: 0;
 }
 
 
@@ -136,10 +155,9 @@ section{
 }
 
 .search{
-    float: right;
-    max-width: 50%;
-    text-align: right;
+    width: 100%;
     display: inline-block;
+    vertical-align: middle;
 }
 
 .search-type{
@@ -147,21 +165,35 @@ section{
     background-color: whitesmoke;
     border: slategray 1px solid;
     height: 70px;
+    width: 50%;
+    box-sizing: border-box;
 }
 
 
                                                 /* REGULAR BLOCKS */
+
+.fav-cities{
+}
+
 .regular-temperature{
     font-size: 1em;
     margin-left: 5%;
+    vertical-align: middle;
 }
 
 .city-image{
-    width: 10%;
+    width: 1.5em;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
 }
 
                                                 /* MEDIA REQUEST */
 @media (min-width: 992px){
+    .fav-cities{
+        column-count: 2;
+    }
     .container{
         width: 45%;
     }
@@ -172,9 +204,11 @@ section{
         width: 95%;
     }
     .search{
-        width: 50%;
+        width: 55%;
+        margin-right: 0;
+        text-align: right;
+        vertical-align: bottom;
     }
-
     .mobile-ref{
         display: none;
     }
@@ -189,7 +223,11 @@ section{
         width: 40px;
     }
     .search-type{
-        height: 40px;
+        height: 50px;
+    }
+
+    h2{
+        display: inline-block;
     }
 }
 
