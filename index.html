@@ -22,25 +22,25 @@
         <!--                            CURRENT SECTION                                 -->
         <section class="container">
             <h1>Saint Petersburg</h1>
-            <img src="./images/met.png" alt="logo" class="current-image">
+            <div class="current-image"></div>
             <span class="current-temperature">  8&degC</span>
         </section>
         <section class="container">
             <ul>
                 <li class="condition">
-                    <div class="feature">Ветер</div><div class="feature-content">57657</div>
+                    <div class="feature">Ветер</div><div class="feature-content" id="wind-0">57657</div>
                 </li>
                 <li class="condition">
-                    <div class="feature">Облачность</div><div class="feature-content">57657</div>
+                    <div class="feature">Облачность</div><div class="feature-content" id="cloud-0">57657</div>
                 </li>
                 <li class="condition">
-                    <div class="feature">Давление</div><div class="feature-content">57657</div>
+                    <div class="feature">Давление</div><div class="feature-content" id="pressure-0">57657</div>
                 </li>
                 <li class="condition">
-                    <div class="feature">Влажность</div><div class="feature-content">57657</div>
+                    <div class="feature">Влажность</div><div class="feature-content" id="humidity-0">57657</div>
                 </li>
                 <li class="condition">
-                    <div class="feature">Координаты</div><div class="feature-content">57657</div>
+                    <div class="feature">Координаты</div><div class="feature-content" id="cords-0">57657</div>
                 </li>
             </ul>
         </section>
@@ -51,7 +51,7 @@
             <h2>Избранное</h2>
             <form class="search">
                 <input class="search-type" type="search" placeholder="Добавить новый город">
-                <button class="button">&#10010</button>
+                <button class="button add-button">&#10010</button>
             </form>
         </section>
 
@@ -63,76 +63,7 @@
                 <button class="button close-button">X</button>
                 <span class="regular-temperature">8&degC</span>
                 <img class="city-image" src="./images/met.png" alt="logo">
-                <ul>
-                    <li class="condition">
-                        <div class="feature">Ветер</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Облачность</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Давление</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Влажность</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Координаты</div><div class="feature-content">57657</div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h3>Saint Petersburg</h3>
-                <button class="button close-button">X</button>
-                <span class="regular-temperature">8&degC</span>
-                <img class="city-image" src="./images/met.png" alt="logo">
-                <ul>
-                    <li class="condition">
-                        <div class="feature">Ветер</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Облачность</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Давление</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Влажность</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Координаты</div><div class="feature-content">57657</div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h3>Saint Petersburg</h3>
-                <button class="button close-button">X</button>
-                <span class="regular-temperature">8&degC</span>
-                <img class="city-image" src="./images/met.png" alt="logo">
-                <ul>
-                    <li class="condition">
-                        <div class="feature">Ветер</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Облачность</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Давление</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Влажность</div><div class="feature-content">57657</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Координаты</div><div class="feature-content">57657</div>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h3>Saint Petersburg</h3>
-                <button class="button close-button">X</button>
-                <span class="regular-temperature">8&degC</span>
-                <img class="city-image" src="./images/met.png" alt="logo">
-                <ul>
+                <ul class="inner-ul">
                     <li class="condition">
                         <div class="feature">Ветер</div><div class="feature-content">57657</div>
                     </li>
@@ -152,5 +83,6 @@
             </li>
         </ul>
     </main>
+    <script src="js/location.js"></script>
 </body>
 </html>
