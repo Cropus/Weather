@@ -28,6 +28,10 @@ body{
     width: 90%;
 }
 
+
+
+
+
                                                 /* FONTS */
 h1, h2, h3{
     margin: 0;
@@ -58,7 +62,9 @@ li{
 
 
 
-                                                /* HEADER AREA */
+
+
+                                                /* HEADER SECTION */
 header{
     font-size: 1em;
     width: 90%;
@@ -103,7 +109,10 @@ header{
 }
 
 
-                                                /* CURRENT AREA */
+
+
+
+                                                /* CURRENT SECTION */
 section{
     margin-top: 50px;
 }
@@ -150,7 +159,9 @@ section{
 
 
 
-                                                /* FAVORITE AREA */
+
+
+                                                /* FAVORITE SECTION */
 .favorites{
     width: 90%;
 }
@@ -175,17 +186,16 @@ section{
 }
 
 
-                                                /* REGULAR BLOCKS */
+
+
+
+                                                /* REGULAR SECTION */
 
 .fav-cities{
 }
 
 .fav {
     break-inside: avoid;
-}
-
-ul.reg-container.fav-cities ul.inner-ul{
-    column-count: 1 !important;
 }
 
 .regular-temperature{
@@ -201,6 +211,10 @@ ul.reg-container.fav-cities ul.inner-ul{
     padding: 0;
     vertical-align: middle;
 }
+
+
+
+
 
                                                 /* MEDIA REQUEST */
 @media (min-width: 992px){
