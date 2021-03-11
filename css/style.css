@@ -180,6 +180,10 @@ section{
 .fav-cities{
 }
 
+.fav {
+    break-inside: avoid;
+}
+
 ul.reg-container.fav-cities ul.inner-ul{
     column-count: 1 !important;
 }

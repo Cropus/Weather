@@ -10,7 +10,7 @@ const loc = (latitude, longitude) => {
     fetch(`https://community-open-weather-map.p.rapidapi.com/forecast?units=metric&lat=${latitude}&lon=${longitude}`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "29fc1a655fmsh424fa4327ee5de8p123dc4jsn9b2fc6baa3ea",
+            "x-rapidapi-key": "8704498e48msh1624788c735cb86p1d33c0jsn7dd12089f4f7",
             "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
         }
     })
@@ -41,7 +41,7 @@ function cit(city) {
     fetch(`https://community-open-weather-map.p.rapidapi.com/weather?q=${city}&units=metric`, {
         "method": "GET",
         "headers": {
-            "x-rapidapi-key": "29fc1a655fmsh424fa4327ee5de8p123dc4jsn9b2fc6baa3ea",
+            "x-rapidapi-key": "8704498e48msh1624788c735cb86p1d33c0jsn7dd12089f4f7",
             "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
         }
     })
@@ -81,32 +81,35 @@ const geoError = (error) => {
 
 window.onload = () => {
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
-    for (let i = 0; i < localStorage.length; i++) {
-        setTimeout(add, (i+1)*2000, localStorage.getItem(localStorage.key(i)));
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+        add(localStorage.getItem(localStorage.key(i)));
+    }
+    for (let i = localStorage.length - 1; i >= 0; i--) {
+        setTimeout(cit, (localStorage.length - i) * 2000, localStorage.getItem(localStorage.key(i)));
     }
 }
 
 function add(val) {
-    document.querySelector(".reg-container").insertAdjacentHTML('afterbegin', `<li class="fav" id="li-${val}">
+    document.querySelector(".reg-container").insertAdjacentHTML('beforeend', `<li class="fav" id="li-${val}">
                 <h3>${val}</h3>
                 <button class="button close-button" id="close-${val}">X</button>
                 <span class="regular-temperature" id="temp-${val}">?&degC</span>
                 <img class="city-image" id="img-${val}" src="./icons/unknown.png" alt="tmp">
                 <ul class="inner-ul">
                     <li class="condition">
-                        <div class="feature">Ветер</div><div class="feature-content" id="wind-${val}"></div>
+                        <div class="feature">Ветер</div><div class="feature-content" id="wind-${val}">&#8634</div>
                     </li>
                     <li class="condition">
-                        <div class="feature">Облачность</div><div class="feature-content" id="cloud-${val}"></div>
+                        <div class="feature">Облачность</div><div class="feature-content" id="cloud-${val}">&#8634</div>
                     </li>
                     <li class="condition">
-                        <div class="feature">Давление</div><div class="feature-content" id="pressure-${val}"></div>
+                        <div class="feature">Давление</div><div class="feature-content" id="pressure-${val}">&#8634</div>
                     </li>
                     <li class="condition">
-                        <div class="feature">Влажность</div><div class="feature-content" id="humidity-${val}"></div>
+                        <div class="feature">Влажность</div><div class="feature-content" id="humidity-${val}">&#8634</div>
                     </li>
                     <li class="condition">
-                        <div class="feature">Координаты</div><div class="feature-content" id="cords-${val}"></div>
+                        <div class="feature">Координаты</div><div class="feature-content" id="cords-${val}">&#8634</div>
                     </li>
                 </ul>
             </li>`);
@@ -115,7 +118,6 @@ function add(val) {
         li.remove();
         localStorage.removeItem(val);
     }
-    cit(val);
 }
 
 document.querySelector(".desktop-ref").onclick = function () {
@@ -125,11 +127,11 @@ document.querySelector(".mobile-ref").onclick = function () {
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
 }
 document.querySelector(".add-button").onclick = function () {
-    console.log(document.querySelector(".search-type").value);
     const val = document.querySelector(".search-type").value;
-    if (val !== "") {
+    if (val !== "" && localStorage.getItem(val) === null) {
         localStorage.setItem(val, val)
         add(val);
+        cit(val);
     }
     return false;
 }
