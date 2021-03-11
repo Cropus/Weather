@@ -82,7 +82,7 @@ const geoError = (error) => {
 window.onload = () => {
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
     for (let i = 0; i < localStorage.length; i++) {
-        setTimeout(add, 1000, localStorage.getItem(localStorage.key(i)));
+        setTimeout(add, (i+1)*2000, localStorage.getItem(localStorage.key(i)));
     }
 }
 
