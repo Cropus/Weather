@@ -152,6 +152,7 @@ document.querySelector(".add-button").onclick = function () {
         add(value);
         fetchByCity(value);
     }
+    document.querySelector(".search-type").value = "";
     return false;
 }
 
