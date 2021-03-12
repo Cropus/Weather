@@ -13,7 +13,7 @@ const geoSuccess = (position) => {
 // Callback for error
 const geoError = (error) => {
     console.error(error);
-    return fetchByCity("St. Petersburg");
+    return fetchByLocation(59.937500, 30.308611);
 };
 
 
