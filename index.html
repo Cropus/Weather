@@ -58,7 +58,33 @@
 
 
         <!--                            REGULAR SECTION                                 -->
-        <ul class="reg-container fav-cities"></ul>
+        <ul class="reg-container fav-cities">
+            <template id="template">
+                <li class="fav" id="li">
+                    <h3>Загрузка</h3>
+                    <button class="button close-button" id="close">X</button>
+                    <span class="regular-temperature" id="temp">?&degC</span>
+                    <img class="city-image" id="img" src="./icons/unknown.png" alt="tmp">
+                    <ul class="inner-ul">
+                        <li class="condition">
+                            <div class="feature">Ветер</div><div class="feature-content" id="wind">&#8634</div>
+                        </li>
+                        <li class="condition">
+                            <div class="feature">Облачность</div><div class="feature-content" id="cloud">&#8634</div>
+                        </li>
+                        <li class="condition">
+                            <div class="feature">Давление</div><div class="feature-content" id="pressure">&#8634</div>
+                        </li>
+                        <li class="condition">
+                            <div class="feature">Влажность</div><div class="feature-content" id="humidity">&#8634</div>
+                        </li>
+                        <li class="condition">
+                            <div class="feature">Координаты</div><div class="feature-content" id="cords">&#8634</div>
+                        </li>
+                    </ul>
+                </li>
+            </template>
+        </ul>
     </main>
 
     <!--                                SCRIPT SECTION                                 -->
