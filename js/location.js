@@ -60,7 +60,7 @@ const fetchByLocation = (latitude, longitude) => {
 }
 // Use only for regular-section
 function fetchByCity (city) {
-    let ans = "";
+    let id = "";
     fetch(`https://community-open-weather-map.p.rapidapi.com/weather?q=${city}&units=metric`, {
         "method": "GET",
         "headers": {
@@ -86,20 +86,31 @@ function fetchByCity (city) {
         })
         .then(function (data) {
             // Set regular location weather-data
-            setRegular(city, data);
-            ans = data.id;
+            if (localStorage.length !== 0) {
+                for (let i = 0; i < localStorage.length; i++) {
+                    if (localStorage.getItem(localStorage.key(i)) == data.id) {
+                        alert("Already exists");
+                        document.getElementById(`li-${city}`).remove();
+                    } else {
+                        setRegular(city, data);
+                        localStorage.setItem(city, data.id);
+                    }
+                }
+            } else {
+                setRegular(city, data);
+                localStorage.setItem(city, data.id);
+            }
         })
         .catch ((e) => {
             if (!navigator.onLine) {
                 alert("Please, check your network connection");
             }
-            console.log(e);
+            console.error(e);
             if (document.getElementById(`li-${city}`) !== null) {
                 document.getElementById(`li-${city}`).remove();
             }
             localStorage.removeItem(city);
         });
-    return ans;
 }
 
 
@@ -132,9 +143,9 @@ function setRegular(city, data) {
 function add(value) {
     // Create template-container for regular city
     if ('content' in document.createElement('template')) {
-        var template = document.querySelector('#template');
-        var container = document.querySelector('.reg-container');
-        var c = template.content;
+        let template = document.querySelector('#template');
+        let container = document.querySelector('.reg-container');
+        let c = template.content;
         c.querySelector('h3').textContent = value;
         c.querySelector('button').id = `close-${value}`;
         c.querySelector('span').id = `temp-${value}`;
@@ -147,30 +158,6 @@ function add(value) {
         features[3].id = `humidity-${value}`;
         features[4].id = `cords-${value}`;
         container.appendChild(c.cloneNode(true));
-    } else {
-        document.querySelector(".reg-container").insertAdjacentHTML('beforeend', `<li class="fav" id="li-${value}">
-                <h3>${value}</h3>
-                <button class="button close-button" id="close-${value}">X</button>
-                <span class="regular-temperature" id="temp-${value}">?&degC</span>
-                <img class="city-image" id="img-${value}" src="./icons/unknown.png" alt="tmp">
-                <ul class="inner-ul">
-                    <li class="condition">
-                        <div class="feature">Ветер</div><div class="feature-content" id="wind-${value}">&#8634</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Облачность</div><div class="feature-content" id="cloud-${value}">&#8634</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Давление</div><div class="feature-content" id="pressure-${value}">&#8634</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Влажность</div><div class="feature-content" id="humidity-${value}">&#8634</div>
-                    </li>
-                    <li class="condition">
-                        <div class="feature">Координаты</div><div class="feature-content" id="cords-${value}">&#8634</div>
-                    </li>
-                </ul>
-            </li>`);
     }
     // Set close-button for template-container
     document.getElementById(`close-${value}`).onclick = () => {
@@ -193,55 +180,17 @@ document.querySelector(".mobile-ref").onclick = function () {
 // Set add-button for favorite-section
 document.querySelector(".add-button").onclick = function () {
     const value = document.querySelector(".search-type").value;
-    // add(value);
-    // let id = fetchByCity(value);
-    // let flag = false;
-    // for (var i = 0; i < localStorage.length; i++) {
-    //     if (localStorage.getItem(localStorage.key(i)) === id) {
-    //         flag = true;
-    //     }
-    // }
-    // if (value !== "" && !flag) {
-    //     localStorage.setItem(value, id);
-    // } else {
-    //     document.getElementById(`li-${value}`).remove();
-    // }
+
     let flag = false;
-    for (var i = 0; i < localStorage.length; i++) {
+    for (let i = 0; i < localStorage.length; i++) {
         if (localStorage.key(i) === value) {
             flag = true;
         }
     }
     if (value !== "" && !flag) {
         add(value);
-        let id = fetchByCity(value);
-        localStorage.setItem(value, id);
-        // for (var i = 0; i < localStorage.length; i++) {
-        //     if (localStorage.getItem(localStorage.key(i)) === id) {
-        //         flag = true;
-        //         console.log(id);
-        //     }
-        // }
-        // if (!flag) {
-        //     localStorage.setItem(value, id);
-        // } else {
-        //     document.getElementById(`li-${value}`).remove();
-        // }
+        fetchByCity(value);
     }
-    // if (value !== "") {
-    //     add(value);
-    //     let id = fetchByCity(value);
-    //     for (var i = 0; i < localStorage.length; i++) {
-    //         if (localStorage.getItem(localStorage.key(i)) === id) {
-    //             flag = true;
-    //         }
-    //     }
-    //     if (!flag) {
-    //         localStorage.setItem(value, id);
-    //     } else {
-    //         document.getElementById(`li-${value}`).remove();
-    //     }
-    // }
     document.querySelector(".search-type").value = "";
     return false;
 }
@@ -253,13 +202,25 @@ window.onload = () => {
     // Get geolocation
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
 
-
-    // Add favorite cities
+    let map = new Map();
     for (let i = localStorage.length - 1; i >= 0; i--) {
-        add(localStorage.key(i));
+        map.set(localStorage.key(i), localStorage.getItem(localStorage.key(i)));
+    }
+    localStorage.clear();
+    // Add favorite cities
+    // for (let i = 0; i < map.size; i++) {
+    //     add(localStorage.key(i));
+    // }
+    for (let city of map.keys()) {
+        add(city);
     }
     // Set weather-data on favorite cities
-    for (let i = localStorage.length - 1; i >= 0; i--) {
-        setTimeout(fetchByCity, (localStorage.length - i) * 2000, localStorage.key(i));
+    // for (let i = localStorage.length - 1; i >= 0; i--) {
+    //     setTimeout(fetchByCity, (localStorage.length - i) * 2000, localStorage.key(i));
+    // }
+    let i = 0;
+    for (let city of map.keys()) {
+        i = i + 1;
+        setTimeout(fetchByCity, i * 2000, city);
     }
 }
